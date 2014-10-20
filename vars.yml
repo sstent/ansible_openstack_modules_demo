@@ -1,0 +1,9 @@
+ubuntu_img_name: Ubuntu_14.04
+ubuntu_img_link: "https://cloud-images.ubuntu.com/trusty/current/trusty-server-cloudimg-amd64-disk1.img"
+centos_img_name: CentOS_7
+centos_img_link: "http://cloud.centos.org/centos/7/devel/CentOS-7-x86_64-GenericCloud.qcow2"
+network_name: ansible_created_network
+subnet_name: ansible_created_subnet
+subnet_cidr: 192.168.12.0/24
+pubkey_file: '~/os_ans/tkarasek_key.pub'
+pubkey_name: tkarasek_key2

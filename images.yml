@@ -1,0 +1,25 @@
+---
+- vars_files:
+  - vars.yml
+
+  hosts: localhost
+
+  tasks:
+
+  - glance_image:
+      auth_url: "{{ lookup('env', 'OS_AUTH_URL') }}"
+      login_username: "{{ lookup('env', 'OS_USERNAME') }}"
+      login_password: "{{ lookup('env', 'OS_PASSWORD') }}"
+      login_tenant_name: "{{ lookup('env', 'OS_TENANT_ID') }}"
+
+      name: "{{ ubuntu_img_name }}"
+      copy_from: "{{ ubuntu_img_link }}"
+
+  - glance_image:
+      auth_url: "{{ lookup('env', 'OS_AUTH_URL') }}"
+      login_username: "{{ lookup('env', 'OS_USERNAME') }}"
+      login_password: "{{ lookup('env', 'OS_PASSWORD') }}"
+      login_tenant_name: "{{ lookup('env', 'OS_TENANT_ID') }}"
+
+      name: "{{ centos_img_name }}"
+      copy_from: "{{ centos_img_link }}"
