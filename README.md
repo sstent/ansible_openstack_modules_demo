@@ -4,7 +4,7 @@ These playbooks show how to initialize an OpenStack tenant with Ansible. It does
 
 THe playbooks run on localhost. You should have openrc.sh sourced before you run the playbooks, because they attempt to use the OS\_\* env variables for authentication, just like python-{nova,glance,...}client.
 
-First you need to, at least, find out which subnet you have free, and edit var.yml.
+First you need to read and edit vars.yml
 
 Then, run as
 
@@ -17,5 +17,8 @@ $ ansible-playbook -i images.yml
 
 # upload keypair
 $ ansible-playbook -i keypair.yml
+
+# launch two instances,
+$ ansible-playbook -i instances.yml
 
 ```
