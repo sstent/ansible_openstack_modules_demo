@@ -6,6 +6,8 @@
 
   tasks:
 
+  # For this to work, you need to be admin in the tenant
+
   - quantum_network:
       auth_url: "{{ lookup('env', 'OS_AUTH_URL') }}"
       login_username: "{{ lookup('env', 'OS_USERNAME') }}"
@@ -23,6 +25,7 @@
 
       cidr: "{{ subnet_cidr }}"
       name: "{{ subnet_name }}"
+      network_name: "{{ tenant_network_name }}"
       dns_nameservers: "{{ subnet_dns_servers }}"
 
 

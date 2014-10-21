@@ -1,0 +1,26 @@
+---
+- vars_files:
+  - vars.yml
+
+  hosts: localhost
+
+  tasks:
+
+  - nova_compute:
+      auth_url: "{{ lookup('env', 'OS_AUTH_URL') }}"
+      login_username: "{{ lookup('env', 'OS_USERNAME') }}"
+      login_password: "{{ lookup('env', 'OS_PASSWORD') }}"
+      login_tenant_name: "{{ lookup('env', 'OS_TENANT_ID') }}"
+
+      image_name: "{{ ubuntu_img_name }}"
+      key_name: "{{ pubkey_name }}"
+      name: ubu
+      floating_ip_pools: [public]
+
+  #- nova_compute:
+  #    auth_url: "{{ lookup('env', 'OS_AUTH_URL') }}"
+  #    login_username: "{{ lookup('env', 'OS_USERNAME') }}"
+  #    login_password: "{{ lookup('env', 'OS_PASSWORD') }}"
+  #    login_tenant_name: "{{ lookup('env', 'OS_TENANT_ID') }}"
+
+  #    image_name: "{{ centos_img_name }}"
