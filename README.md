@@ -22,3 +22,5 @@ $ ansible-playbook -i keypair.yml
 $ ansible-playbook -i instances.yml
 
 ```
+
+The instances get assigned the "default" security group.
