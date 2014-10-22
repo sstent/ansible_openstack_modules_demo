@@ -7,19 +7,22 @@
   tasks:
 
   - glance_image:
-      auth_url: "{{ lookup('env', 'OS_AUTH_URL') }}"
-      login_username: "{{ lookup('env', 'OS_USERNAME') }}"
-      login_password: "{{ lookup('env', 'OS_PASSWORD') }}"
-      login_tenant_name: "{{ lookup('env', 'OS_TENANT_ID') }}"
-
       name: "{{ ubuntu_img_name }}"
       copy_from: "{{ ubuntu_img_link }}"
+      is_public: false
 
-  - glance_image:
       auth_url: "{{ lookup('env', 'OS_AUTH_URL') }}"
       login_username: "{{ lookup('env', 'OS_USERNAME') }}"
       login_password: "{{ lookup('env', 'OS_PASSWORD') }}"
       login_tenant_name: "{{ lookup('env', 'OS_TENANT_ID') }}"
 
+  - glance_image:
       name: "{{ centos_img_name }}"
       copy_from: "{{ centos_img_link }}"
+      is_public: false
+
+      auth_url: "{{ lookup('env', 'OS_AUTH_URL') }}"
+      login_username: "{{ lookup('env', 'OS_USERNAME') }}"
+      login_password: "{{ lookup('env', 'OS_PASSWORD') }}"
+      login_tenant_name: "{{ lookup('env', 'OS_TENANT_ID') }}"
+

@@ -9,52 +9,53 @@
   # For this to work, you need to be admin in the tenant
 
   - quantum_network:
+      name: "{{ tenant_network_name }}"
+
       auth_url: "{{ lookup('env', 'OS_AUTH_URL') }}"
       login_username: "{{ lookup('env', 'OS_USERNAME') }}"
       login_password: "{{ lookup('env', 'OS_PASSWORD') }}"
       login_tenant_name: "{{ lookup('env', 'OS_TENANT_ID') }}"
-
-      name: "{{ tenant_network_name }}"
 
 
   - quantum_subnet:
-      auth_url: "{{ lookup('env', 'OS_AUTH_URL') }}"
-      login_username: "{{ lookup('env', 'OS_USERNAME') }}"
-      login_password: "{{ lookup('env', 'OS_PASSWORD') }}"
-      login_tenant_name: "{{ lookup('env', 'OS_TENANT_ID') }}"
-
       cidr: "{{ subnet_cidr }}"
       name: "{{ subnet_name }}"
       network_name: "{{ tenant_network_name }}"
       dns_nameservers: "{{ subnet_dns_servers }}"
 
-
-  - quantum_router:
       auth_url: "{{ lookup('env', 'OS_AUTH_URL') }}"
       login_username: "{{ lookup('env', 'OS_USERNAME') }}"
       login_password: "{{ lookup('env', 'OS_PASSWORD') }}"
       login_tenant_name: "{{ lookup('env', 'OS_TENANT_ID') }}"
 
+
+
+  - quantum_router:
       name: "{{ router_name }}"
+
+      auth_url: "{{ lookup('env', 'OS_AUTH_URL') }}"
+      login_username: "{{ lookup('env', 'OS_USERNAME') }}"
+      login_password: "{{ lookup('env', 'OS_PASSWORD') }}"
+      login_tenant_name: "{{ lookup('env', 'OS_TENANT_ID') }}"
 
 
   - quantum_router_gateway:
-      auth_url: "{{ lookup('env', 'OS_AUTH_URL') }}"
-      login_username: "{{ lookup('env', 'OS_USERNAME') }}"
-      login_password: "{{ lookup('env', 'OS_PASSWORD') }}"
-      login_tenant_name: "{{ lookup('env', 'OS_TENANT_ID') }}"
-
       router_name: "{{ router_name }}"
       network_name: "{{ public_network_name }}"
 
-
-  - quantum_router_interface:
       auth_url: "{{ lookup('env', 'OS_AUTH_URL') }}"
       login_username: "{{ lookup('env', 'OS_USERNAME') }}"
       login_password: "{{ lookup('env', 'OS_PASSWORD') }}"
       login_tenant_name: "{{ lookup('env', 'OS_TENANT_ID') }}"
 
+
+  - quantum_router_interface:
       router_name: "{{ router_name }}"
       subnet_name: "{{ subnet_name }}"
+
+      auth_url: "{{ lookup('env', 'OS_AUTH_URL') }}"
+      login_username: "{{ lookup('env', 'OS_USERNAME') }}"
+      login_password: "{{ lookup('env', 'OS_PASSWORD') }}"
+      login_tenant_name: "{{ lookup('env', 'OS_TENANT_ID') }}"
 
 

@@ -7,9 +7,10 @@
   hosts: localhost
   tasks:
   - nova_keypair:
+      public_key: "{{ lookup('file', '~/os_ans/tkarasek_key.pub') }}"
+      name:  "{{ pubkey_name }}"
+
       auth_url: "{{ lookup('env', 'OS_AUTH_URL') }}"
       login_username: "{{ lookup('env', 'OS_USERNAME') }}"
       login_password: "{{ lookup('env', 'OS_PASSWORD') }}"
       login_tenant_name: "{{ lookup('env', 'OS_TENANT_ID') }}"
-      public_key: "{{ lookup('file', '~/os_ans/tkarasek_key.pub') }}"
-      name:  "{{ pubkey_name }}"
